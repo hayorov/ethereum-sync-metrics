@@ -1,4 +1,4 @@
-# ethereum-sync-mertics
+# ethereum-sync-metrics
 Python web3.py snippet that shows node sync statistics
 
 ## Quick start
