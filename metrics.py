@@ -8,7 +8,7 @@ from web3 import Web3
 
 web3 = Web3(Web3.HTTPProvider('https://xxxx.chainstack.com'))  # your node
 
-NUM_OF_STATES = 310416897  # Actual for Apr, 23 2019
+NUM_OF_STATES = 432391041  # Actual for Jan, 17 2020
 
 
 def measure(interval=30):
