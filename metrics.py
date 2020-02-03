@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 
 from web3 import Web3
 
-web3 = Web3(Web3.HTTPProvider('https://xxxx.chainstack.com'))  # your node
+web3 = Web3(Web3.HTTPProvider('https://xxxx.hayorov.ru'))  # your node
 
-NUM_OF_STATES = 432391041  # Actual for Jan, 17 2020
+NUM_OF_STATES = 436141638  # Actual for Feb, 1 2020
 
 
 def measure(interval=30):
