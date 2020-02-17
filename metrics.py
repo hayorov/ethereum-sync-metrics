@@ -8,7 +8,7 @@ from web3 import Web3
 
 web3 = Web3(Web3.HTTPProvider('https://xxxx.hayorov.ru'))  # your node
 
-NUM_OF_STATES = 436141638  # Actual for Feb, 1 2020
+NUM_OF_STATES = 446266045  # Actual for Feb, 15 2020
 
 
 def measure(interval=30):
