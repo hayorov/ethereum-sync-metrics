@@ -14,11 +14,11 @@ known_states = 0
 web3 = Web3(Web3.HTTPProvider(NODE_ADDRESS))  # your node
 
 
-# NUM_OF_STATES = 446266045  # Actual for Feb, 1 2020
+# NUM_OF_STATES = 446266045  # Actual for Feb, 15 2020
 
 def signal_handler(signal, frame):
     print('Stopping...')
-    updater(known_states, NUMOFSTATES)
+    updater(known_states, NUM_OF_STATES)
     sys.exit(0)
 
 
@@ -31,7 +31,7 @@ def measure(interval=INTERVAL):
     known_states = web3.eth.syncing['knownStates']
     max_speed = min_speed = 0
     while remain:
-        remain = NUMOFSTATES - web3.eth.syncing['knownStates']
+        remain = NUM_OF_STATES - web3.eth.syncing['knownStates']
         time.sleep(interval)
         speed = (web3.eth.syncing['knownStates'] - known_states) / period
         if speed > max_speed:
