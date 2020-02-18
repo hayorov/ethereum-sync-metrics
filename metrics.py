@@ -1,23 +1,37 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import signal
+import sys
 import time
 from datetime import datetime, timedelta
 
-from web3 import Web3
+from selfupdate import *
+from userconfig import INTERVAL
 
-web3 = Web3(Web3.HTTPProvider('https://xxxx.hayorov.ru'))  # your node
+known_states = 0
 
-NUM_OF_STATES = 446266045  # Actual for Feb, 15 2020
+web3 = Web3(Web3.HTTPProvider(NODE_ADDRESS))  # your node
 
 
-def measure(interval=30):
+# NUM_OF_STATES = 446266045  # Actual for Feb, 1 2020
+
+def signal_handler(signal, frame):
+    print('Stopping...')
+    updater(known_states, NUMOFSTATES)
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
+
+
+def measure(interval=INTERVAL):
     remain = 1
     period = interval
     known_states = web3.eth.syncing['knownStates']
     max_speed = min_speed = 0
     while remain:
-        remain = NUM_OF_STATES - web3.eth.syncing['knownStates']
+        remain = NUMOFSTATES - web3.eth.syncing['knownStates']
         time.sleep(interval)
         speed = (web3.eth.syncing['knownStates'] - known_states) / period
         if speed > max_speed:
@@ -32,4 +46,4 @@ def measure(interval=30):
               '\teta@', timedelta(seconds=remain / speed))
 
 
-measure(30)
+measure(INTERVAL)
