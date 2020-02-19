@@ -3,22 +3,19 @@
 
 from web3 import Web3
 from userconfig import NODE_ADDRESS
-from knownstates import NUM_OF_STATES
 import fileinput
 
 web3 = Web3(Web3.HTTPProvider(NODE_ADDRESS))
 
 
 def updater(known_states, NUM_OF_STATES):
-	known_states = web3.eth.syncing['knownStates']
 	if known_states > NUM_OF_STATES:
 		print('The current known state is higher than config...Updating Config...')
 		print('Known States = ', known_states)
 		print('Config File States = ', NUM_OF_STATES)
+		##TODO: CHECK KNOWN STATES HAVE INCREASED BEFORE MAKING ANOTHER WRITE
 		replace_in_file('knownstates.py', str(NUM_OF_STATES), str(known_states))
 		print('New state config is now', known_states)
-		##push new state file to server
-		print('Exiting')
 	if known_states < NUM_OF_STATES:
 		print('NOT IN SYNC WITH NETWORK YET, COME BACK SOON')
 
