@@ -1,7 +1,7 @@
 # ethereum-sync-metrics ⛓
-Python web3.py snippet that shows node sync statistics
+A web3.py snippet that shows node sync statistics in realtime. Written in Python 3
 
-## Quick start
+## Quick Start
    - Setup web3.py
    ```
    pip install -r requirements.txt
@@ -9,7 +9,7 @@ Python web3.py snippet that shows node sync statistics
    
    - Define your node address in `metrics.py`
    ```
-   web3 = Web3(Web3.HTTPProvider('https://xxxx.chainstack.com'))  # your node
+   web3 = Web3(Web3.HTTPProvider('https://xxxx.hayorov.ru'))  # your node
    ```
    
   - Run `metrics.py`
@@ -23,3 +23,6 @@ Python web3.py snippet that shows node sync statistics
   2019-05-06 01:00:58 avg: 1682 max: 1938 min: 1378 states/s 	remain: 136569043 states	 4 peers 	eta@ 22:33:15.402442
   2019-05-06 01:01:03 avg: 1698 max: 1938 min: 1378 states/s 	remain: 136564293 states	 3 peers 	eta@ 22:20:27.458747
   ```
+# Honored Contributors
+
+- [kingvibs](https://github.com/kingvibs)
